@@ -13,7 +13,7 @@ struct Location {
     let name : String
     let country : String
     let whenToGo : String
-    let isFavorite : Bool
+    var isFavorite : Bool
     
     enum SerializationError:Error {
         case missing(String)

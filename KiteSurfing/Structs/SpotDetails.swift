@@ -67,7 +67,6 @@ struct SpotDetails {
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        //print(token)
         request.addValue("OatadvnKQA", forHTTPHeaderField: "Token")
         
         let headerDictionary: [String: Any] = [ "spotId": "\(spotId)"]
@@ -108,10 +107,9 @@ struct SpotDetails {
                 
                 
                 if let results = receivedJson["result"] as? [String:Any] {
-                    print(results["longitude"] as Any)
                         if let spotDetailsObject = try? SpotDetails(json: results) {
                             SpotDetail = spotDetailsObject
-                            print("ceva")
+                            
                             
                         }
                     

@@ -11,11 +11,11 @@
 		1E264CEB2254F277007EC865 /* SpotDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E264CEA2254F277007EC865 /* SpotDetails.swift */; };
 		1E264CED225505BF007EC865 /* ConfigureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E264CEC225505BF007EC865 /* ConfigureViewController.swift */; };
 		1E264CF02255F6CA007EC865 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E264CEE2255F6CA007EC865 /* Main.storyboard */; };
+		1E264CF222561493007EC865 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E264CF122561493007EC865 /* Assets.xcassets */; };
 		1E52A7422253D6A800BD9961 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52A7412253D6A700BD9961 /* Location.swift */; };
 		1E52A74422540AAA00BD9961 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52A74322540AAA00BD9961 /* DetailsViewController.swift */; };
 		1ED2A76A224A84DE00400775 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED2A769224A84DE00400775 /* AppDelegate.swift */; };
 		1ED2A772224A84DE00400775 /* KiteSurfing.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1ED2A770224A84DE00400775 /* KiteSurfing.xcdatamodeld */; };
-		1ED2A774224A84E000400775 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ED2A773224A84E000400775 /* Assets.xcassets */; };
 		1ED2A777224A84E000400775 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ED2A775224A84E000400775 /* LaunchScreen.storyboard */; };
 		1ED2A77F224A8A7200400775 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED2A77E224A8A7200400775 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -25,12 +25,12 @@
 		1E264CEA2254F277007EC865 /* SpotDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetails.swift; sourceTree = "<group>"; };
 		1E264CEC225505BF007EC865 /* ConfigureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureViewController.swift; sourceTree = "<group>"; };
 		1E264CEF2255F6CA007EC865 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1E264CF122561493007EC865 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1E52A7412253D6A700BD9961 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		1E52A74322540AAA00BD9961 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		1ED2A766224A84DE00400775 /* KiteSurfing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KiteSurfing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ED2A769224A84DE00400775 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ED2A771224A84DE00400775 /* KiteSurfing.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KiteSurfing.xcdatamodel; sourceTree = "<group>"; };
-		1ED2A773224A84E000400775 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1ED2A776224A84E000400775 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1ED2A778224A84E000400775 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1ED2A77E224A8A7200400775 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +47,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E264CF4225617A1007EC865 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1ED2A77E224A8A7200400775 /* TableViewController.swift */,
+				1E264CEC225505BF007EC865 /* ConfigureViewController.swift */,
+				1E52A74322540AAA00BD9961 /* DetailsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		1E264CF5225617B8007EC865 /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				1E264CE82254EB49007EC865 /* Countries.swift */,
+				1E52A7412253D6A700BD9961 /* Location.swift */,
+				1E264CEA2254F277007EC865 /* SpotDetails.swift */,
+			);
+			path = Structs;
+			sourceTree = "<group>";
+		};
 		1ED2A75D224A84DE00400775 = {
 			isa = PBXGroup;
 			children = (
@@ -66,16 +86,12 @@
 		1ED2A768224A84DE00400775 /* KiteSurfing */ = {
 			isa = PBXGroup;
 			children = (
-				1ED2A77E224A8A7200400775 /* TableViewController.swift */,
-				1E264CEC225505BF007EC865 /* ConfigureViewController.swift */,
-				1E264CE82254EB49007EC865 /* Countries.swift */,
-				1E52A7412253D6A700BD9961 /* Location.swift */,
+				1E264CF4225617A1007EC865 /* Controllers */,
+				1E264CF5225617B8007EC865 /* Structs */,
 				1E264CEE2255F6CA007EC865 /* Main.storyboard */,
-				1E264CEA2254F277007EC865 /* SpotDetails.swift */,
 				1ED2A769224A84DE00400775 /* AppDelegate.swift */,
-				1E52A74322540AAA00BD9961 /* DetailsViewController.swift */,
-				1ED2A773224A84E000400775 /* Assets.xcassets */,
 				1ED2A775224A84E000400775 /* LaunchScreen.storyboard */,
+				1E264CF122561493007EC865 /* Assets.xcassets */,
 				1ED2A778224A84E000400775 /* Info.plist */,
 				1ED2A770224A84DE00400775 /* KiteSurfing.xcdatamodeld */,
 			);
@@ -141,8 +157,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E264CF02255F6CA007EC865 /* Main.storyboard in Resources */,
+				1E264CF222561493007EC865 /* Assets.xcassets in Resources */,
 				1ED2A777224A84E000400775 /* LaunchScreen.storyboard in Resources */,
-				1ED2A774224A84E000400775 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
