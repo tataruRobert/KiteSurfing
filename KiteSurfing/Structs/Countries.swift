@@ -10,8 +10,6 @@ import Foundation
 
 struct Country {
     let country : String
-
-
     init(json: String)  {
         self.country = json
     }
@@ -25,22 +23,7 @@ struct Country {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         //print(token)
         request.addValue("OatadvnKQA", forHTTPHeaderField: "Token")
-//        let headerDictionary: [String: Any] = ["email": "robert.tataru98@gmail.com"]
-//        let jsonSend: Data
-//        do {
-//            jsonSend = try JSONSerialization.data(withJSONObject: headerDictionary, options: [])
-//            request.httpBody = jsonSend
-//        } catch {
-//            print("Error: cannot create JSON from todo")
-//            return
-//        }
-
         let session = URLSession.shared
-        
-        
-        
-        
-        
         let task = session.dataTask(with: request) {
             (data, response, error) in
             guard error == nil else {
@@ -53,29 +36,19 @@ struct Country {
                 return
             }
             var Countries:[Country] = []
-
-            // parse the result as JSON, since that's what the API provides
             do {
-                guard let receivedJson = try JSONSerialization.jsonObject(with: responseData,
-                                                                          options: []) as? [String: Any] else {
-                                                                            print("Could not get JSON from responseData as dictionary")
-                                                                            return
+                guard let receivedJson = try JSONSerialization.jsonObject(with: responseData, options: []) as? [String: Any] else {
+                print("Could not get JSON from responseData as dictionary")
+                return
                 }
 
-
-
                 if let results = receivedJson["result"] as? [String] {
-                    
                     for dataPoint in results {
                         Countries.append(Country(json: dataPoint))
                     }
                 }
-
-
-                //print(errorMessage)
-
             } catch  {
-                print("error parsing response from POST on /todos")
+                print("error parsing response from POST")
                 return
             }
             completion(Countries)

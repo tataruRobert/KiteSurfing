@@ -39,13 +39,10 @@ struct Location {
         
     }
     
-    
-    
     static let basePath = "https://internship-2019.herokuapp.com"
     static var token : String = ""
     
     static func start () {
-        
         let url = basePath + "/api-user-get"
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "POST"
@@ -56,7 +53,7 @@ struct Location {
             jsonEmail = try JSONSerialization.data(withJSONObject: email, options: [])
             request.httpBody = jsonEmail
         } catch {
-            print("Error: cannot create JSON from todo")
+            print("Error: cannot create JSON")
             return
         }
         
@@ -65,7 +62,7 @@ struct Location {
         let task = session.dataTask(with: request) {
             (data, response, error) in
             guard error == nil else {
-                print("error calling POST on /todos/1")
+                print("error calling POST")
                 print(error!)
                 return
             }
@@ -74,31 +71,21 @@ struct Location {
                 return
             }
             
-            // parse the result as JSON, since that's what the API provides
             do {
-                guard let receivedJson = try JSONSerialization.jsonObject(with: responseData,
-                                                                          options: []) as? [String: Any] else {
-                                                                            print("Could not get JSON from responseData as dictionary")
-                                                                            return
+                guard let receivedJson = try JSONSerialization.jsonObject(with: responseData, options: []) as? [String: Any] else {
+                       print("Could not get JSON from responseData as dictionary")
+                       return
                 }
-                
-                
                 
                 if let results = receivedJson["result"] as? [String:Any] {
                     guard let Token = results["token"] as? String else {
-                        print("Could not get todoID as int from JSON")
                         return
                     }
                     print("Token is: \(Token)")
                     token = Token
-                    print("ceva")
                 }
-                
-                
-                //print(errorMessage)
-                
             } catch  {
-                print("error parsing response from POST on /todos")
+                print("error parsing response from POST")
                 return
             }
         }
@@ -112,7 +99,6 @@ struct Location {
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        //print(token)
         request.addValue("OatadvnKQA", forHTTPHeaderField: "Token")
         let headerDictionary: [String: Any] = ["country": "\(country)", "windProbability": Int (wind) as Any]
         let jsonSend: Data
@@ -120,7 +106,7 @@ struct Location {
             jsonSend = try JSONSerialization.data(withJSONObject: headerDictionary, options: [])
             request.httpBody = jsonSend
         } catch {
-            print("Error: cannot create JSON from todo")
+            print("Error: cannot create JSON")
             return
         }
         
@@ -129,7 +115,7 @@ struct Location {
         let task = session.dataTask(with: request) {
             (data, response, error) in
             guard error == nil else {
-                print("error calling POST on /todos/1")
+                print("error calling POST")
                 print(error!)
                 return
             }
@@ -139,15 +125,11 @@ struct Location {
             }
             var Locations:[Location] = []
             
-            // parse the result as JSON, since that's what the API provides
             do {
-                guard let receivedJson = try JSONSerialization.jsonObject(with: responseData,
-                                                                          options: []) as? [String: Any] else {
-                                                                            print("Could not get JSON from responseData as dictionary")
-                                                                            return
+                guard let receivedJson = try JSONSerialization.jsonObject(with: responseData, options: []) as? [String: Any] else {
+                       print("Could not get JSON from responseData as dictionary")
+                          return
                 }
-                
-                
                 
                 if let results = receivedJson["result"] as? [[String:Any]] {
                     for dataPoint in results {
@@ -158,11 +140,8 @@ struct Location {
                     }
                 }
                 
-                
-                //print(errorMessage)
-                
             } catch  {
-                print("error parsing response from POST on /todos")
+                print("error parsing response from POST ")
                 return
             }
             completion(Locations)
@@ -177,7 +156,6 @@ struct Location {
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        //print(token)
         request.addValue("OatadvnKQA", forHTTPHeaderField: "Token")
         let headerDictionary: [String: Any] = ["spotId": "\(spotId)"]
         let jsonSend: Data
@@ -185,7 +163,7 @@ struct Location {
             jsonSend = try JSONSerialization.data(withJSONObject: headerDictionary, options: [])
             request.httpBody = jsonSend
         } catch {
-            print("Error: cannot create JSON from todo")
+            print("Error: cannot create JSON")
             return
         }
         
@@ -194,7 +172,7 @@ struct Location {
         let task = session.dataTask(with: request) {
             (data, response, error) in
             guard error == nil else {
-                print("error calling POST on /todos/1")
+                print("error calling POST ")
                 print(error!)
                 return
             }
@@ -203,25 +181,17 @@ struct Location {
                 return
             }
            
-            
-            // parse the result as JSON, since that's what the API provides
             do {
-                guard let receivedJson = try JSONSerialization.jsonObject(with: responseData,
-                                                                          options: []) as? [String: Any] else {
-                                                                            print("Could not get JSON from responseData as dictionary")
-                                                                            return
+                guard let receivedJson = try JSONSerialization.jsonObject(with: responseData, options: []) as? [String: Any] else {
+                       print("Could not get JSON from responseData as dictionary")
+                          return
                 }
-                
-            
-                
-                
-                //print(errorMessage)
-                
+
             } catch  {
-                print("error parsing response from POST on /todos")
+                print("error parsing response from POST")
                 return
             }
-            
+
         }
         task.resume()
         
@@ -233,7 +203,6 @@ struct Location {
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        //print(token)
         request.addValue("OatadvnKQA", forHTTPHeaderField: "Token")
         let headerDictionary: [String: Any] = ["spotId": "\(spotId)"]
         let jsonSend: Data
@@ -241,7 +210,7 @@ struct Location {
             jsonSend = try JSONSerialization.data(withJSONObject: headerDictionary, options: [])
             request.httpBody = jsonSend
         } catch {
-            print("Error: cannot create JSON from todo")
+            print("Error: cannot create JSON")
             return
         }
         
@@ -250,7 +219,7 @@ struct Location {
         let task = session.dataTask(with: request) {
             (data, response, error) in
             guard error == nil else {
-                print("error calling POST on /todos/1")
+                print("error calling POST")
                 print(error!)
                 return
             }
@@ -258,33 +227,19 @@ struct Location {
                 print("Error: did not receive data")
                 return
             }
-            
-            
-            // parse the result as JSON, since that's what the API provides
             do {
-                guard let receivedJson = try JSONSerialization.jsonObject(with: responseData,
-                                                                          options: []) as? [String: Any] else {
-                                                                            print("Could not get JSON from responseData as dictionary")
-                                                                            return
+                guard let receivedJson = try JSONSerialization.jsonObject(with: responseData, options: []) as? [String: Any] else {
+                        print("Could not get JSON from responseData as dictionary")
+                           return
                 }
-                
-                
-                
-                
-                //print(errorMessage)
-                
+
             } catch  {
-                print("error parsing response from POST on /todos")
+                print("error parsing response from POST")
                 return
             }
             
         }
         task.resume()
-        
-        
-        
+    
     }
-    
-    
-    
 }

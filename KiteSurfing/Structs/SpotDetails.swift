@@ -70,13 +70,12 @@ struct SpotDetails {
         request.addValue("OatadvnKQA", forHTTPHeaderField: "Token")
         
         let headerDictionary: [String: Any] = [ "spotId": "\(spotId)"]
-       // print(spotId)
         let jsonSend: Data
         do {
             jsonSend = try JSONSerialization.data(withJSONObject: headerDictionary, options: [])
             request.httpBody = jsonSend
         } catch {
-            print("Error: cannot create JSON from todo")
+            print("Error: cannot create JSON ")
             return
         }
         
@@ -85,7 +84,7 @@ struct SpotDetails {
         let task = session.dataTask(with: request) {
             (data, response, error) in
             guard error == nil else {
-                print("error calling POST on /todos/1")
+                print("error calling POST")
                 print(error!)
                 return
             }
@@ -96,38 +95,26 @@ struct SpotDetails {
             
             var SpotDetail: SpotDetails?
             
-            // parse the result as JSON, since that's what the API provides
             do {
-                guard let receivedJson = try JSONSerialization.jsonObject(with: responseData,
-                                                                          options: []) as? [String: Any] else {
-                                                                            print("Could not get JSON from responseData as dictionary")
-                                                                            return
+                guard let receivedJson = try JSONSerialization.jsonObject(with: responseData, options: []) as? [String: Any] else {
+                      print("Could not get JSON from responseData as dictionary")
+                        return
                 }
-                
-                
                 
                 if let results = receivedJson["result"] as? [String:Any] {
                         if let spotDetailsObject = try? SpotDetails(json: results) {
                             SpotDetail = spotDetailsObject
-                            
-                            
                         }
                     
                 }
                 
-                
-                //print(errorMessage)
-                
             } catch  {
-                print("error parsing response from POST on /todos")
+                print("error parsing response from POST ")
                 return
             }
             completion(SpotDetail)
         }
         task.resume()
-        
-        
-        
     }
     
 }
